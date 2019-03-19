@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 require("../module/model/user")
 require("../module/model/movies")
+require("../module/model/imgs")
 //引入mongodb模块，获得客户端对象
 var dbURI = 'mongodb://localhost/test';
 mongoose.connect(dbURI);
@@ -117,3 +118,37 @@ module.exports.update = async ({
         })
     })
 }   
+//新增图片的方法
+module.exports.createImg = async({
+    modelName,
+    insetData,    
+})=>{
+    return await new Promise((resolve,reject)=>{
+        mongoose
+        .model(modelName)
+        .create(insetData,(err,data)=>{
+            if(err) {
+                resolve(false)
+            }else{
+                resolve(data)
+            } 
+        })
+    })
+}
+//删除方法
+module.exports.remove = async ({
+    modelName,
+    queryTerms
+})=>{
+    return await new Promise((resolve, reject) => {
+        mongoose
+            .model(modelName)
+            .remove(queryTerms, (err, data) => {
+                if (err) {
+                    resolve(false)
+                } else {
+                    resolve(true)
+                }
+            })
+    })
+}

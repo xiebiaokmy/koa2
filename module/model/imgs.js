@@ -3,6 +3,7 @@ var Schema = mongoose.Schema
 var imgSchema = new Schema({
     url:String,
     type:String,
+    urlName:String,
     status:String,
     movieId:{
         type:Schema.Types.ObjectId,
