@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 require("../module/model/user")
 require("../module/model/movies")
 require("../module/model/imgs")
+require("../module/model/movieData")
 //引入mongodb模块，获得客户端对象
 var dbURI = 'mongodb://localhost/test';
 mongoose.connect(dbURI);

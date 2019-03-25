@@ -13,7 +13,7 @@ const index = require('./routes/index')
 const users = require('./routes/users')
 const imgs = require('./routes/imgs')
 const movies = require('./routes/movies')
-
+const reptile = require('./routes/reptile')
 // error handler
 onerror(app)
 
@@ -42,6 +42,7 @@ app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
 app.use(imgs.routes(), imgs.allowedMethods())
 app.use(movies.routes(), movies.allowedMethods())
+app.use(reptile.routes(), reptile.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {

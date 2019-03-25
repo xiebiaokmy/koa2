@@ -24,7 +24,7 @@ var upload = multer({ storage: storage });
 
 router.post('/upload', upload.single('file'),async (ctx, next) => {
     // console.log(1111,ctx.req.body.type,ctx.req.body)
-    ctx.req.body.url = "http://localhost:3000/uploads/"+ctx.req.file.filename
+    ctx.req.body.url = "http://192.168.1.80:3000/uploads/"+ctx.req.file.filename
     const data = await create(ctx.req.body)
     const res = await addImg(data)
     console.log(444,data)
